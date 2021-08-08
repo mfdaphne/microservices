@@ -12,10 +12,13 @@ repositories {
 
 ext {
 	set('springCloudVersion', "2020.0.3")
+	hystrixVersion = "2.2.9.RELEASE"
 }
 
 dependencies {
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard:'+hystrixVersion
+	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
