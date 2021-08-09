@@ -1,0 +1,14 @@
+server:
+   port: 9094
+
+spring:
+  application:
+    name: CLOUD-CONFIG-SERVICE
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mfdaphne/microservices-shared
+          default-label: main
+          clone-on-start: true
+    

@@ -15,6 +15,9 @@ import com.shopping.user.dto.UserDTO;
 import com.shopping.user.service.UserService;
 import com.shopping.user.service.exception.UserIdNotFoundException;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -27,12 +30,14 @@ public class UserController {
 
 	@PostMapping("/save")
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO dto) {
+		log.info("Saving user");
 		userService.saveUser(dto);
 		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<UserDTO> getUser(@PathVariable("id") long id) throws UserIdNotFoundException {
+		log.info("Trying to get user by ID " + id);
 		return ResponseEntity.ok(userService.getUserById(id));
 	}
 

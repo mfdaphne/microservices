@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shopping.subscription.dto.SubscriptionDTO;
 import com.shopping.subscription.service.SubscriptionService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/subscription")
 public class SubscriptionController {
@@ -27,11 +30,13 @@ public class SubscriptionController {
 	@PostMapping("/save")
 	public ResponseEntity<?> createNewSubscription(@RequestBody SubscriptionDTO dto) {
 		service.saveSubscription(dto);
+		log.info("Saved subscription");
 		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<SubscriptionDTO> getSubscription(@PathVariable("id") long id) {
+		log.info("Trying to get Subscription details for id " + id);
 		Optional<SubscriptionDTO> dto = service.getSubscriptionById(id);
 		return dto.isPresent() ? ResponseEntity.ok(dto.get()) : ResponseEntity.notFound().build();
 
