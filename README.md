@@ -1,4 +1,4 @@
-# microservices
+# Microservices
 
 Microservices are small self-contained ready to run group of applications. Read more about it here - https://spring.io/microservices
 
