@@ -11,4 +11,4 @@ Below microservices are implemented in the respective projects:
 - shopping-gateway - all microservices will be accessed through this gateway. This contains route mapping and Circuit breaker configuration to redirect URL to another endpoint when something goes wrong in the service. Its also configured to send data to Hystrix Server.
 - service-registry - This acts as Eureka Server. Gets information of all applications configured as Eureka client. http://localhost:8761/
 - hystrix-dashboard - Read more about the usage here https://github.com/Netflix-Skunkworks/hystrix-dashboard/wiki
-- cloud-config-server - All common configurations are extracted to a common application.yml and used over all spring boot applications. In order to activate this feature bootstrap.yml is created in the client apps with the cloud-config property.
+- cloud-config-server - All common configurations are extracted to a common application.yml(in Github) and used over all spring boot applications. In order to activate this feature bootstrap.yml is created in the client apps with the cloud-config property.
